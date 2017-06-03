@@ -5,7 +5,7 @@ if [ $STATUS == 0 ]
 then
     echo '<span foreground="#1793d0">   '"$LEVEL"'%</span>'
 else
-    if [ $LEVEL < 20 ]
+    if [ $LEVEL -lt 20 ]
     then
         echo '<span foreground="#c12505">  ' "$LEVEL" '%</span>'
     else
