@@ -9,6 +9,6 @@ else
     then
         echo '<span foreground="#c12505">  ' "$LEVEL" '%</span>'
     else
-        echo "$LEVEL%"
+        echo "  $LEVEL%"
     fi
 fi
