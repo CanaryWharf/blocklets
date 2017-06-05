@@ -4,5 +4,5 @@ if [ $COUNT == 0 ]
 then
     echo ""
 else
-    echo $COUNT
+    echo "   $COUNT"
 fi
