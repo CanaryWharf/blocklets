@@ -4,5 +4,5 @@ if [ $COUNT == 0 ]
 then
     echo ""
 else
-    echo'<span foreground="ff9f1c">  '"$COUNT"'</span>' 
+    echo '<span foreground="#ff9f1c">   '"$COUNT"'</span>' 
 fi
