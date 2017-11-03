@@ -8,7 +8,7 @@ else
     if [ $LEVEL -lt 20 ]
     then
         echo '<span foreground="#f23232">  ' "$LEVEL"'%</span>'
-        if [ $LEVEL -lt 6 ]
+        if [ $LEVEL -lt 8 ]
         then
             if [ $LEVEL -lt 5 ]
             then
