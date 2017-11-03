@@ -7,7 +7,7 @@ else
     ARTIST=$(qdbus org.mpris.clementine /Player org.freedesktop.MediaPlayer.GetMetadata | grep artist | cut -d " " -f2-)
     if [ -z $TITLE ]
     then
-        echo 'Nothing Playing'
+        echo 'Clementine'
     else
         echo "$ARTIST - $TITLE "
     fi

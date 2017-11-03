@@ -8,16 +8,16 @@ else
     if [ $LEVEL -lt 20 ]
     then
         echo '<span foreground="#f23232">  ' "$LEVEL"'%</span>'
-        if [ $LEVEL -lt 5 ]
+        if [ $LEVEL -lt 6 ]
         then
-            if mkdir ~/hiberlock;
+            if [ $LEVEL -lt 5 ]
             then
-                notify-send "You could have stopped this" -u critical
+                notify-send -i "/usr/share/icons/Arc/status/128/dialog-information.png" "You could have stopped this" -u critical
                 sleep 10
-                rm ~/hiberlock
                 shutdown now
+            else
+                notify-send -i "/usr/share/icons/Arc/status/128@2x/dialog-error.png" "Get the bloody charger, you twat"
             fi
-        fi
     else
         echo '<span foreground="#1be7ff">'"   $LEVEL%</span>"
     fi
