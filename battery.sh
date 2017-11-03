@@ -18,6 +18,7 @@ else
             else
                 notify-send -i "/usr/share/icons/Arc/status/128@2x/dialog-error.png" "Get the bloody charger, you twat"
             fi
+        fi
     else
         echo '<span foreground="#1be7ff">'"   $LEVEL%</span>"
     fi
