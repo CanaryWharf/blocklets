@@ -1,5 +1,5 @@
 #PROFILE=$(awk -F "=" '/Path/ {print $2}' ~/.thunderbird/profiles.ini)
-COUNT=$(awk -F ":" '{print $1}' ~/.thunderbird/n7gbyd3c.default/unread-counts | paste -s -d+ | bc )
+COUNT=$(awk -F ":" '{print $1}' ~/.thunderbird/2wecjvfs.default/unread-counts | paste -s -d+ | bc )
 if [ $COUNT == 0 ]
 then
     echo ""

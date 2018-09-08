@@ -1,13 +1,15 @@
 #!/bin/bash
-LEVEL=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -Po "[0-9]+(?=%)" | head -1)
+ALPHA=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -Po "[0-9]+(?=%)" | head -1)
+BRAVO=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -Po "[0-9]+(?=%)" | head -1)
 STATUS=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | grep -c discharging)
+LEVEL=$(($ALPHA + $BRAVO))
 if [ $STATUS == 0 ]
 then
-    echo '<span foreground="#31e26c">   '"$LEVEL"'%</span>'
+    echo '<span foreground="#31e26c">'"    "$BRAVO"•"$ALPHA"</span>"
 else
     if [ $LEVEL -lt 20 ]
     then
-        echo '<span foreground="#f23232">  ' "$LEVEL"'%</span>'
+        echo '<span foreground="#f23232">'"   "$BRAVO"•"$ALPHA"</span>"
         if [ $LEVEL -lt 8 ]
         then
             if [ $LEVEL -lt 5 ]
@@ -20,6 +22,6 @@ else
             fi
         fi
     else
-        echo '<span foreground="#1be7ff">'"   $LEVEL%</span>"
+        echo '<span foreground="#1be7ff">'"   "$BRAVO"•"$ALPHA"</span>"
     fi
 fi
