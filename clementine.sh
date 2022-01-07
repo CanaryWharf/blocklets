@@ -8,8 +8,8 @@ else
     ARTIST=$($METADATA | grep artist | cut -d " " -f2-)
     if [ -z $TITLE ]
     then
-        echo 'Clementine'
+        echo '   Clementine'
     else
-        echo "$ARTIST - $TITLE "
+        echo "   $ARTIST - $TITLE "
     fi
 fi

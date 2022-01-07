@@ -11,16 +11,9 @@ else
     if [ $LEVEL -lt 20 ]
     then
         echo '<span foreground="#f23232">'"   "$TEXT"</span>"
-        if [ $LEVEL -lt 8 ]
+        if [ $LEVEL -lt 10 ]
         then
-            if [ $LEVEL -lt 5 ]
-            then
-                notify-send -i "/usr/share/icons/Arc/status/128/dialog-information.png" "You could have stopped this" -u critical
-                sleep 10
-                shutdown now
-            else
-                notify-send -i "/usr/share/icons/Arc/status/128@2x/dialog-error.png" "Get the bloody charger, you twat"
-            fi
+            notify-send -i "/usr/share/icons/Arc/status/128@2x/dialog-error.png" "Get the bloody charger, you twat"
         fi
     else
         echo '<span foreground="#1be7ff">'"   "$TEXT"</span>"
