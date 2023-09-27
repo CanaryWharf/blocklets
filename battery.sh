@@ -1,10 +1,10 @@
 #!/bin/bash
-ALPHA=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -Po "[0-9]+(?=%)" | head -1)
-BRAVO=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -Po "[0-9]+(?=%)" | head -1)
+ALPHA=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -Po "[0-9.]+(?=%)" | head -1)
+BRAVO=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -Po "[0-9.]+(?=%)" | head -1)
 STATUS=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | grep -c discharging)
-LEVEL=$(($ALPHA + $BRAVO))
+LEVEL=$((ALPHA + BRAVO))
 TEXT="$ALPHA|$BRAVO"
-if [ $STATUS == 0 ]
+if [ "$STATUS" == 0 ]
 then
     echo '<span foreground="#31e26c">'"   "$TEXT"</span>"
 else
