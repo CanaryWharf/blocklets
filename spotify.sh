@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $(qdbus | grep -c org.mpris.MediaPlayer2.spotify) == 0 ]
+if [ "$(qdbus | grep -c org.mpris.MediaPlayer2.spotify)" == 0 ]
 then
     echo ""
 else

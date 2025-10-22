@@ -1,5 +1,5 @@
 #!/bin/bash
-SSID=$(iwgetid -r)
+SSID=$(iwgetid -r wlan0)
 if [ -z "$SSID" ]
 then
     echo '<span foreground="#f23232">  Down</span>'
