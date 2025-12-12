@@ -1,9 +1,9 @@
 #!/bin/bash
-ALPHA=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -Po "[0-9.]+(?=%)" | head -1)
-BRAVO=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -Po "[0-9.]+(?=%)" | head -1)
-STATUS=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state | grep -c discharging)
+ALPHA=$(upower --battery | grep percentage | grep -Po "[0-9.]+(?=%)")
+# BRAVO=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep -Po "[0-9.]+(?=%)" | head -1)
+STATUS=$(upower --battery | grep state | grep -c discharging)
 LEVEL=$((ALPHA + BRAVO))
-TEXT="$ALPHA|$BRAVO"
+TEXT="$LEVEL"
 if [ "$STATUS" == 0 ]
 then
     echo "<span foreground=\"#31e26c\">   $TEXT</span>"

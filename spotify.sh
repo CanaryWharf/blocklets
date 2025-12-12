@@ -1,14 +1,15 @@
 #!/bin/bash
-if [ "$(qdbus | grep -c org.mpris.MediaPlayer2.spotify)" == 0 ]
+if (busctl --user list | grep org.mpris.MediaPlayer2.spotify)
 then
-    echo ""
-else
-    TITLE=$(qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Metadata | grep title | cut -d " " -f2-)
-    ARTIST=$(qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Metadata | grep artist | cut -d " " -f2-)
+    DATA=$(busctl --user get-property org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player Metadata --json=short)
+    TITLE=$(echo $DATA | jq '.data["xesam:title"].data' -r)
+    ARTIST=$(echo $DATA | jq '.data["xesam:artist"].data[0]' -r)
     if [[ -z $TITLE ]]
     then
         echo '   Spotify'
     else
         echo "   $ARTIST - $TITLE "
     fi
+else
+    echo ""
 fi
