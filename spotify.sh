@@ -1,5 +1,5 @@
 #!/bin/bash
-if (busctl --user list | grep org.mpris.MediaPlayer2.spotify)
+if (busctl --user status -j org.mpris.MediaPlayer2.spotify --no-pager &> /dev/null)
 then
     DATA=$(busctl --user get-property org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player Metadata --json=short)
     TITLE=$(echo $DATA | jq '.data["xesam:title"].data' -r)
